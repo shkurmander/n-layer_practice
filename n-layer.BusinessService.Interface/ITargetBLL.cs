@@ -4,7 +4,7 @@ using System.Text;
 
 namespace n_layer.BusinessService
 {
-    interface ITargetBLL
+    public interface ITargetBLL
     {
         public int Id { get; set; }
         public string Name { get; set; }
