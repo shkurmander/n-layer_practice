@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>n_layer.BusinessService</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\n-layer.DataAccess.Interface\n-layer.DataAccess.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

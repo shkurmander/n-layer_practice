@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>n_layer.BusinessService.Cache.Interface</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\n-layer.BusinessService.Interface\n-layer.BusinessService.Interface.csproj" />
+    <ProjectReference Include="..\n-layer.DataAccess.Interface\n-layer.DataAccess.Interface.csproj" />
+  </ItemGroup>
+
+</Project>
