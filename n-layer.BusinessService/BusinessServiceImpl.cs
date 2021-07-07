@@ -1,44 +1,72 @@
 ﻿
 using n_layer.DataAccess;
+using n_layer.Mappers;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace n_layer.BusinessService
 {
     class BusinessServiceImpl : IBusinessService
     {
-               
+        /// <summary>
+        /// Добавление задачи
+        /// </summary>
         private IDataAccsess<Target> _da;
         public void AddNewTarget(TargetBLL newTarget)
         {
             var list = _da.GetEntities();
-            var data = TargetMapper
+            list.Add(TargetMapper.ToDAL(newTarget));
+            _da.SaveEntities(list);
         }
-
+        /// <summary>
+        /// Удаление задачи
+        /// </summary>
+        /// <param name="targetToDelete"></param>
         public void DeleteTarget(TargetBLL targetToDelete)
         {
-            throw new NotImplementedException();
-        }
+            var bllList = TargetMapper.ToBLLList(_da.GetEntities());
 
+            bllList.RemoveAll(i => i.Id == targetToDelete.Id);
+            _da.SaveEntities(TargetMapper.ToDALList(bllList));
+
+        }
+        /// <summary>
+        /// Редактирование задачи
+        /// </summary>
+        /// <param name="editedTarget"></param>
         public void EditTarget(TargetBLL editedTarget)
         {
-            throw new NotImplementedException();
+            var bllList = TargetMapper.ToBLLList(_da.GetEntities());
+            bllList.RemoveAll(i => i.Id == editedTarget.Id);
+            _da.SaveEntities(TargetMapper.ToDALList(bllList));
         }
-
+        /// <summary>
+        /// Поиск по id 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public TargetBLL GetTargetById(int id)
-        {
-            throw new NotImplementedException();
+        {          
+            var bllList = TargetMapper.ToBLLList(_da.GetEntities());
+            return bllList.Single(i => i.Id == id);
         }
-
+        /// <summary>
+        /// Поиск по имени
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public TargetBLL GetTargetByName(string name)
-        {
-            throw new NotImplementedException();
+        {            
+            var bllList = TargetMapper.ToBLLList(_da.GetEntities());
+            return bllList.Single(i => i.Name == name);
         }
 
-        public IList<TargetBLL> GetTodoList()
+        public List<TargetBLL> GetTodoList()
         {
-            throw new NotImplementedException();
+            var bllList = TargetMapper.ToBLLList(_da.GetEntities());
+            return bllList;
         }
+        
     }
 }

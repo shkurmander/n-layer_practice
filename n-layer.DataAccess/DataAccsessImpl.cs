@@ -7,12 +7,12 @@ namespace n_layer.DataAccess
     class DataAccsessImpl<T> : IDataAccsess<T> 
     {
         private IDataRepository<T> _repo;
-        public IList<T> GetEntities()
+        public List<T> GetEntities()
         {            
             return _repo.Load();
         }        
 
-        public  void SaveEntities(IList<T> newdata)
+        public  void SaveEntities(List<T> newdata)
         {
             _repo.Save(newdata);
         }

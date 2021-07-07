@@ -7,8 +7,8 @@ namespace n_layer.DataAccess
     public interface IDataRepository <T>
     {
         
-        public void Save(IList<T> data);
-        public IList<T> Load();
+        public void Save(List<T> data);
+        public List<T> Load();
 
     }
 }

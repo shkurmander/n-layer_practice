@@ -6,7 +6,7 @@ namespace n_layer.BusinessService
 {
     public interface IBusinessService
     {
-        public IList<TargetBLL> GetTodoList();
+        public List<TargetBLL> GetTodoList();
         public TargetBLL GetTargetById(int id);
         public TargetBLL GetTargetByName(string name);
         public void AddNewTarget(TargetBLL newTarget);
