@@ -7,7 +7,7 @@ namespace n_layer.DataAccess
     public interface  IDataAccsess<T> 
     {
         public IList<T> GetEntities();
-        public IList<ITarget> SaveEntities(IList<T> newdata);
+        public void SaveEntities(IList<T> newdata);
 
     }
 }

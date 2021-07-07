@@ -6,12 +6,12 @@ namespace n_layer.BusinessService
 {
     public interface IBusinessService
     {
-        public IList<ITargetBLL> GetTodoList();
-        public ITargetBLL GetTargetById(int id);
-        public ITargetBLL GetTargetByName(string name);
-        public void AddNewTarget(ITargetBLL newTarget);
-        public void EditTarget(ITargetBLL editedTarget);
-        public void DeleteTarget(ITargetBLL targetToDelete);
+        public IList<TargetBLL> GetTodoList();
+        public TargetBLL GetTargetById(int id);
+        public TargetBLL GetTargetByName(string name);
+        public void AddNewTarget(TargetBLL newTarget);
+        public void EditTarget(TargetBLL editedTarget);
+        public void DeleteTarget(TargetBLL targetToDelete);
 
 
     }

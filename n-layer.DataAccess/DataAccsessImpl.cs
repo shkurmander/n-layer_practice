@@ -6,14 +6,19 @@ namespace n_layer.DataAccess
 {
     class DataAccsessImpl<T> : IDataAccsess<T> 
     {
+        private IDataRepository<T> _repo;
         public IList<T> GetEntities()
-        {
-            throw new NotImplementedException();
-        }
+        {            
+            return _repo.Load();
+        }        
 
-        public IList<ITarget> SaveEntities(IList<T> newdata)
+        public  void SaveEntities(IList<T> newdata)
         {
-            throw new NotImplementedException();
+            _repo.Save(newdata);
+        }
+        public DataAccsessImpl()
+        {
+            _repo = new FileDataRepository<T>("todolist.dat");
         }
     }
 }

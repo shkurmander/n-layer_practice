@@ -5,4 +5,10 @@
     <RootNamespace>n_layer.Common</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\n-layer.BusinessService.Interface\n-layer.BusinessService.Interface.csproj" />
+    <ProjectReference Include="..\n-layer.BusinessService\n-layer.BusinessService.csproj" />
+    <ProjectReference Include="..\n-layer.DataAccess\n-layer.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
