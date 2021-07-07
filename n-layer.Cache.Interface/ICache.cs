@@ -1,13 +1,15 @@
-﻿using System;
+﻿
+using n_layer.BusinessService;
 using System.Collections.Generic;
-using System.Text;
 
 namespace n_layer.Cache
 {
     public interface ICache
     {
-        public void AddToCache();
-
+        public void AddToCache(List<TargetBLL>);
+        public List<TargetBLL> GetFromCache();
 
     }
+
+    
 }
