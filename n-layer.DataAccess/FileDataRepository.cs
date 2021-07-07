@@ -11,7 +11,7 @@ namespace n_layer.DataAccess
     {
         private string _path;
 
-        public IList<T> Load()
+        public List<T> Load()
         {
             BinaryFormatter formatter = new BinaryFormatter();
 
@@ -21,13 +21,13 @@ namespace n_layer.DataAccess
             //Десериализуем данные из файла
             using (var fs = new FileStream(_path, FileMode.Open))
             {
-                var newData = (IList<T>)formatter.Deserialize(fs);
+                var newData = (List<T>)formatter.Deserialize(fs);
                 
                 return newData;
             }
         }
 
-        public void Save(IList<T> data)
+        public void Save(List<T> data)
         {
             BinaryFormatter formatter = new BinaryFormatter();
 

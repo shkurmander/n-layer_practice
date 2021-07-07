@@ -31,7 +31,7 @@ namespace n_layer.Mappers
 
         public static List<Target> ToDALList(List<TargetBLL> bllList)
         {
-            var dalList = new List<Target>;
+            var dalList = new List<Target>();
             foreach (var item in bllList)
             {
                 dalList.Add(
