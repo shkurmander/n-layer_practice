@@ -61,7 +61,10 @@ namespace n_layer.BusinessService
             var bllList = TargetMapper.ToBLLList(_da.GetEntities());
             return bllList.Single(i => i.Name == name);
         }
-
+        /// <summary>
+        /// Вернуть полный список задач
+        /// </summary>
+        /// <returns></returns>
         public List<TargetBLL> GetTodoList()
         {
             var bllList = TargetMapper.ToBLLList(_da.GetEntities());
