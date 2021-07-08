@@ -4,21 +4,24 @@ using System.Text;
 
 namespace n_layer.DataAccess
 {
-    class DataAccsessImpl<T> : IDataAccsess<T> 
+    public class DataAccsessImpl : IDataAccsess
     {
-        private IDataRepository<T> _repo;
-        public List<T> GetEntities()
+        private IDataRepository<Target> _repo;        
+        public DataAccsessImpl()
+        {
+            _repo = new FileDataRepository<Target>("todolist.dat");
+            
+        }
+        public List<Target> GetEntities()
         {            
             return _repo.Load();
         }        
 
-        public  void SaveEntities(List<T> newdata)
+        public  void SaveEntities(List<Target> newdata)
         {
             _repo.Save(newdata);
-        }
-        public DataAccsessImpl()
-        {
-            _repo = new FileDataRepository<T>("todolist.dat");
-        }
+        }      
+        
+
     }
 }

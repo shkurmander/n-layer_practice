@@ -4,10 +4,10 @@ using System.Text;
 
 namespace n_layer.DataAccess
 {
-    public interface  IDataAccsess<T> 
+    public interface  IDataAccsess
     {
-        public List<T> GetEntities();
-        public void SaveEntities(List<T> newdata);
+        public List<Target> GetEntities();
+        public void SaveEntities(List<Target> newdata);
 
     }
 }

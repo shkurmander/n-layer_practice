@@ -1,10 +1,12 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace n_layer.BusinessService
+namespace n_layer.UserAPI.Interface
 {
-    public class TargetBLL
+    public class TargetPL
     {
-        public int Id { get; set; }
+       
         public string Name { get; set; }
         public int Priority { get; set; }
         public string Text { get; set; }
