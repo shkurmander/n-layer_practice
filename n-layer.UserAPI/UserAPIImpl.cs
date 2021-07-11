@@ -9,15 +9,16 @@ namespace n_layer.UserAPI
 {
     public class UserAPIImpl : IUserAPI
     {
-        private IBusinessService _bl;
-        public UserAPIImpl(IBusinessService bl)
+        private ITargetService _bl;
+        public UserAPIImpl(ITargetService bl)
         {
             _bl = bl;
         }
         public void AddNewTarget(string name, int priority, string text)
         {
             var target = new TargetPL()
-            {                
+            {
+                Id = 0,
                 Name = name,
                 Priority = priority,
                 Text = text

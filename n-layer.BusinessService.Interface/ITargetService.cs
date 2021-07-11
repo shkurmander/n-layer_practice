@@ -3,7 +3,7 @@
 
 namespace n_layer.BusinessService
 {
-    public interface IBusinessService
+    public interface ITargetService
     {
         public List<TargetBLL> GetTodoList();
         public TargetBLL GetTargetById(int id);

@@ -1,15 +1,16 @@
-﻿using n_layer.DataAccess;
+﻿using n_layer.Common;
+using n_layer.DataAccess;
 using n_layer.Mappers;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace n_layer.BusinessService
 {
-    public class BusinessServiceImpl : IBusinessService
+    public class TargetServiceImpl : ITargetService
     {
        
         private IDataAccsess _da;
-        public BusinessServiceImpl(IDataAccsess da)
+        public TargetServiceImpl(IDataAccsess da)
         {
             _da = da;
         }
@@ -19,6 +20,7 @@ namespace n_layer.BusinessService
         public void AddNewTarget(TargetBLL newTarget)
         {
             var list = _da.GetEntities();
+            newTarget.Id = Helpers.getNewId();
             list.Add(TargetMapper.BLLToDAL(newTarget));
             _da.SaveEntities(list);
         }
