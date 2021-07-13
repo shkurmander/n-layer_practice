@@ -12,5 +12,7 @@ namespace n_layer.UserAPI.Interface
         public void AddNewTarget(TargetPL target);
         public void EditTarget(TargetPL targetToEdit);
         public void DeleteTarget(int id);
+        public List<TargetPL> GetSortByPriority();
+
     }
 }

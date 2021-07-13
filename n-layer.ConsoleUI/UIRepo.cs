@@ -42,20 +42,23 @@ namespace n_layer.ConsoleUI
                 MakeIndent();
                 Console.WriteLine("1. Вывести список задач");
                 MakeIndent();
-                Console.WriteLine("2. Добавить новую задачу");
+                Console.WriteLine("2. Вывести список задач по приоритету");
                 MakeIndent();
-                Console.WriteLine("3. Поиск задачи");
+                Console.WriteLine("3. Добавить новую задачу");
                 MakeIndent();
-                Console.WriteLine("4. Выход");
+                Console.WriteLine("4. Поиск задачи");
+                MakeIndent();
+                Console.WriteLine("5. Выход");
                 Console.SetCursorPosition(35, Console.CursorTop);
                 Console.WriteLine("********************************************");
 
                 switch (Console.ReadLine())
                 {
                     case "1" : PrintTodoList(); break;
-                    case "2": AddNewTargetDialog(); break;
-                    case "3": FindTargetDialog(); break;
-                    case "4": exit = true; break;
+                    case "2" : PrintSortedList(); break;
+                    case "3": AddNewTargetDialog(); break;
+                    case "4": FindTargetDialog(); break;
+                    case "5": exit = true; break;
 
                     default:
                         break;
@@ -109,6 +112,19 @@ namespace n_layer.ConsoleUI
             Console.Clear();
             
             foreach (var item in _api.GetTodoList())
+            {
+                PrintTarget(item);
+            }
+            Console.WriteLine("Для продолжения нажмите любую клавишу");
+            Console.ReadKey();
+        }
+        
+        public void PrintSortedList()
+        {
+
+            Console.Clear();
+
+            foreach (var item in _api.GetSortByPriority())
             {
                 PrintTarget(item);
             }

@@ -2,6 +2,7 @@
 using n_layer.UserAPI.Interface;
 using n_layer.Mappers;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace n_layer.UserAPI
 {
@@ -29,6 +30,14 @@ namespace n_layer.UserAPI
         public void EditTarget(TargetPL editedTarget)
         {
             _bl.EditTarget(TargetMapper.PLToBLL(editedTarget));
+        }
+
+        public List<TargetPL> GetSortByPriority()
+        {
+            
+             var unsorted = GetTodoList();
+             return unsorted.OrderBy(t => t.Priority).ToList();
+           
         }
 
         public TargetPL GetTargetById(int id)

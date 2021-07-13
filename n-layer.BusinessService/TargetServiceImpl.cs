@@ -80,6 +80,7 @@ namespace n_layer.BusinessService
             var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
             return bllList;
         }
+
         
     }
 }

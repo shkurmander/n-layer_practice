@@ -10,8 +10,7 @@ namespace n_layer.BusinessService
         public List<TargetBLL> GetTargetByName(string name);
         public void AddNewTarget(TargetBLL newTarget);
         public void EditTarget(TargetBLL editedTarget);
-        public void DeleteTarget(int id);
-
+        public void DeleteTarget(int id);        
 
     }
 }
