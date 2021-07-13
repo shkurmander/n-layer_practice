@@ -6,7 +6,7 @@ namespace n_layer.Cache
 {
     public interface ICache
     {
-        public void AddToCache(List<TargetBLL>);
+        public void AddToCache(List<TargetBLL> targetList);
         public List<TargetBLL> GetFromCache();
 
     }

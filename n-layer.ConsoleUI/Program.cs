@@ -8,7 +8,7 @@ namespace n_layer.ConsoleUI
         static void Main(string[] args)
         {
             var ui = new UIRepo();
-            UIRepo.DrawMainMenu();
+            ui.DrawMainMenu();
             Console.ReadKey();
         }
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace n_layer.DataAccess
 {
-  
+    [Serializable]
     public class Target
     {
         public int Id { get; set; }

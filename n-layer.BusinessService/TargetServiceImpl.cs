@@ -69,7 +69,7 @@ namespace n_layer.BusinessService
         {            
             var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
 
-            return bllList.Where(i => i.Name == name).ToList();
+            return bllList.Where(i => i.Name.Contains(name)).ToList();
         }
         /// <summary>
         /// Вернуть полный список задач

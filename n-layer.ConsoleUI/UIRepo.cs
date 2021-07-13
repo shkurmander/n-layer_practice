@@ -25,25 +25,43 @@ namespace n_layer.ConsoleUI
                 Console.SetCursorPosition(ind, Console.CursorTop);
                 
             }
+
+            var exit = false;
+
+            do
+            {
+                Console.Clear();
+
+                Console.SetCursorPosition(42, 10);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ну здравствуй прокрастинатор!!!");
+                Console.ResetColor();
+
+                Console.SetCursorPosition(35, 12);
+                Console.WriteLine("********************************************");
+                MakeIndent();
+                Console.WriteLine("1. Вывести список задач");
+                MakeIndent();
+                Console.WriteLine("2. Добавить новую задачу");
+                MakeIndent();
+                Console.WriteLine("3. Поиск задачи");
+                MakeIndent();
+                Console.WriteLine("4. Выход");
+                Console.SetCursorPosition(35, Console.CursorTop);
+                Console.WriteLine("********************************************");
+
+                switch (Console.ReadLine())
+                {
+                    case "1" : PrintTodoList(); break;
+                    case "2": AddNewTargetDialog(); break;
+                    case "3": FindTargetDialog(); break;
+                    case "4": exit = true; break;
+
+                    default:
+                        break;
+                }
+            } while (!exit);
             
-
-            Console.Clear();
-
-            Console.SetCursorPosition(42, 10);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Ну здравствуй прокрастинатор!!!");
-            Console.ResetColor();
-
-            Console.SetCursorPosition(35, 12);
-            Console.WriteLine("********************************************");
-            MakeIndent();
-            Console.WriteLine("1. Вывести список задач");
-            MakeIndent();
-            Console.WriteLine("2. Добавить новую задачу");
-            MakeIndent();
-            Console.WriteLine("3. Поиск задачи");
-            Console.SetCursorPosition(35, Console.CursorTop);
-            Console.WriteLine("********************************************");
 
 
         }
@@ -75,12 +93,13 @@ namespace n_layer.ConsoleUI
                 catch (Exception)
                 {
 
-                    throw new FormatException("Некорректный ввод, необходимо ввести число"); 
+                    Console.WriteLine("Некорректный ввод, необходимо ввести число"); 
                 }
             }   
 
             _api.AddNewTarget(tmp);
-            
+            Console.WriteLine("Для продолжения нажмите любую клавишу");
+            Console.ReadKey();
         }
 
 
@@ -92,8 +111,9 @@ namespace n_layer.ConsoleUI
             foreach (var item in _api.GetTodoList())
             {
                 PrintTarget(item);
-            }            
-
+            }
+            Console.WriteLine("Для продолжения нажмите любую клавишу");
+            Console.ReadKey();
         }
         public void PrintTodoList(List<TargetPL> lst)
         {
@@ -104,9 +124,11 @@ namespace n_layer.ConsoleUI
             {
                 PrintTarget(item);
             }
+            Console.WriteLine("Для продолжения нажмите любую клавишу");
+            Console.ReadKey();
 
         }
-        public  void PrintTarget(TargetPL target)
+        public void PrintTarget(TargetPL target)
         {
             const int ind = 10;
             void MakeIndent()
@@ -114,15 +136,41 @@ namespace n_layer.ConsoleUI
                 Console.SetCursorPosition(ind, Console.CursorTop);
             }
             MakeIndent();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(target.Name);
-            Console.WriteLine(target.Text);
-            Console.WriteLine(target.Priority);
-            Console.WriteLine(target.State);
+            Console.ResetColor();
+            Console.WriteLine($"Описание:\n\t {target.Text}");
+            switch (target.Priority)
+            {
+                case 1 :  Console.ForegroundColor = ConsoleColor.Red; break;
+                case 2 :  Console.ForegroundColor = ConsoleColor.Magenta; break;
+                case 3 :  Console.ForegroundColor = ConsoleColor.Yellow; break;
+                case 4 :  Console.ForegroundColor = ConsoleColor.Green; break;
+                case 5 :  Console.ForegroundColor = ConsoleColor.Cyan; break;
+                default:
+                    break;
+            }
+            Console.WriteLine($"Приоритет:\t {target.Priority}");
+            Console.ResetColor();
+            if (target.State)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Состояние:\t Выполнено!");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"Состояние:\t Не выполнено!!!");
+            }
+            Console.ResetColor();
+            Console.WriteLine("===========================================================\n");
+            
 
         }
 
         public  void FindTargetDialog()
         {
+            Console.Clear();
 
             Console.WriteLine("Введите название задачи:");
             var reqst = Console.ReadLine();
@@ -132,7 +180,9 @@ namespace n_layer.ConsoleUI
                 Console.WriteLine("Таких задач не найдено");
             }
             else
-                PrintTodoList(result);          
+                PrintTodoList(result);
+            Console.WriteLine("Для продолжения нажмите любую клавишу");
+            Console.ReadKey();
 
         }
 

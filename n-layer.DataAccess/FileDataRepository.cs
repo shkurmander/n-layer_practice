@@ -16,15 +16,41 @@ namespace n_layer.DataAccess
             BinaryFormatter formatter = new BinaryFormatter();
 
            
-            Console.WriteLine($"Читаем данные из файла:\n");
-
-            //Десериализуем данные из файла
-            using (var fs = new FileStream(_path, FileMode.Open))
+            Console.WriteLine($"Читаем данные из файла....\n");
+            if (File.Exists(_path))
             {
-                var newData = (List<T>)formatter.Deserialize(fs);
-                
-                return newData;
+                try
+                {
+                    //Десериализуем данные из файла
+                    using (var fs = new FileStream(_path, FileMode.Open))
+                    {
+                        try
+                        {
+                            var newData = (List<T>)formatter.Deserialize(fs);
+                            return newData;
+                        }
+                        catch (Exception)
+                        {
+
+                            Console.WriteLine("Файл пустой!");
+                        }
+                        
+                                                                 
+                        
+                    }
+                }
+                catch (FileNotFoundException)
+                {
+
+                    Console.WriteLine("Файл не найден, вы еще не добавляли задачи!");
+                    
+
+                }
             }
+            return new List<T>();
+
+
+
         }
 
         public void Save(List<T> data)
