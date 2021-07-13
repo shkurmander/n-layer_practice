@@ -10,6 +10,10 @@ namespace n_layer.BusinessService
     {
        
         private IDataAccsess _da;
+        public TargetServiceImpl()
+        {
+            _da = new DataAccsessImpl();
+        }
         public TargetServiceImpl(IDataAccsess da)
         {
             _da = da;
@@ -28,11 +32,11 @@ namespace n_layer.BusinessService
         /// Удаление задачи
         /// </summary>
         /// <param name="targetToDelete"></param>
-        public void DeleteTarget(TargetBLL targetToDelete)
+        public void DeleteTarget(int id)
         {
             var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
 
-            bllList.RemoveAll(i => i.Id == targetToDelete.Id);
+            bllList.RemoveAll(i => i.Id == id);
             _da.SaveEntities(TargetMapper.BLLToDALList(bllList));
 
         }
@@ -61,10 +65,11 @@ namespace n_layer.BusinessService
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public TargetBLL GetTargetByName(string name)
+        public List<TargetBLL> GetTargetByName(string name)
         {            
             var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
-            return bllList.Single(i => i.Name == name);
+
+            return bllList.Where(i => i.Name == name).ToList();
         }
         /// <summary>
         /// Вернуть полный список задач

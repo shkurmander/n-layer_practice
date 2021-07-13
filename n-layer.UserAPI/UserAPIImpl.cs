@@ -1,8 +1,6 @@
 ﻿using n_layer.BusinessService;
 using n_layer.UserAPI.Interface;
-using System;
 using n_layer.Mappers;
-using n_layer.Common;
 using System.Collections.Generic;
 
 namespace n_layer.UserAPI
@@ -10,45 +8,42 @@ namespace n_layer.UserAPI
     public class UserAPIImpl : IUserAPI
     {
         private ITargetService _bl;
+        public UserAPIImpl()
+        {
+            _bl = new TargetServiceImpl();
+        }
         public UserAPIImpl(ITargetService bl)
         {
             _bl = bl;
         }
-        public void AddNewTarget(string name, int priority, string text)
-        {
-            var target = new TargetPL()
-            {
-                Id = 0,
-                Name = name,
-                Priority = priority,
-                Text = text
-            };
+        public void AddNewTarget(TargetPL target)
+        {            
             _bl.AddNewTarget(TargetMapper.PLToBLL(target));
         }
 
-        public void DeleteTarget(string name)
+        public void DeleteTarget(int id)
         {
-            throw new NotImplementedException();
+            _bl.DeleteTarget(id);
         }
 
         public void EditTarget(TargetPL editedTarget)
         {
-            throw new NotImplementedException();
+            _bl.EditTarget(TargetMapper.PLToBLL(editedTarget));
         }
 
         public TargetPL GetTargetById(int id)
         {
-            throw new NotImplementedException();
+            return TargetMapper.BLLToPL(_bl.GetTargetById(id));
         }
 
-        public TargetPL GetTargetByName(string name)
+        public List<TargetPL> GetTargetByName(string name)
         {
-            throw new NotImplementedException();
+            return TargetMapper.BLLToPLList(_bl.GetTargetByName(name));
         }
 
         public List<TargetPL> GetTodoList()
         {
-            throw new NotImplementedException();
+            return TargetMapper.BLLToPLList(_bl.GetTodoList());
         }
     }
 }

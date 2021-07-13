@@ -6,4 +6,9 @@
     <RootNamespace>n_layer.ConsoleUI</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\n-layer.UserAPI.Interface\n-layer.UserAPI.Interface.csproj" />
+    <ProjectReference Include="..\n-layer.UserAPI\n-layer.UserAPI.csproj" />
+  </ItemGroup>
+
 </Project>

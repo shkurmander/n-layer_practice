@@ -1,4 +1,5 @@
-﻿using System;
+﻿using n_layer.UserAPI;
+using System;
 
 namespace n_layer.ConsoleUI
 {
@@ -6,7 +7,9 @@ namespace n_layer.ConsoleUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var ui = new UIRepo();
+            UIRepo.DrawMainMenu();
+            Console.ReadKey();
         }
     }
 }
