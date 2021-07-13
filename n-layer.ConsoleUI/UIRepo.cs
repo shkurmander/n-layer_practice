@@ -57,8 +57,27 @@ namespace n_layer.ConsoleUI
             tmp.Name = Console.ReadLine();
             Console.WriteLine("Введите описание задачи:");
             tmp.Text = Console.ReadLine();
-            Console.WriteLine("Введите приоритет задачи от 1 до 5 :");
-            tmp.Priority = Int32.Parse(Console.ReadLine());
+            var flag = false;
+            while (!flag)
+            {
+                Console.WriteLine("Введите приоритет задачи от 1 до 5 :");
+                try
+                {
+                    var priority = Int32.Parse(Console.ReadLine());
+                    if (CheckPriority(priority))
+                    {
+                        tmp.Priority = priority;
+                        flag = true;
+                    }
+
+
+                }
+                catch (Exception)
+                {
+
+                    throw new FormatException("Некорректный ввод, необходимо ввести число"); 
+                }
+            }   
 
             _api.AddNewTarget(tmp);
             
@@ -76,6 +95,17 @@ namespace n_layer.ConsoleUI
             }            
 
         }
+        public void PrintTodoList(List<TargetPL> lst)
+        {
+
+            Console.Clear();
+
+            foreach (var item in lst)
+            {
+                PrintTarget(item);
+            }
+
+        }
         public  void PrintTarget(TargetPL target)
         {
             const int ind = 10;
@@ -91,12 +121,33 @@ namespace n_layer.ConsoleUI
 
         }
 
-        public  int FindTargetDialog()
+        public  void FindTargetDialog()
         {
 
             Console.WriteLine("Введите название задачи:");
+            var reqst = Console.ReadLine();
+            var result = _api.GetTargetByName(reqst);
+            if (result.Count == 0)
+            {
+                Console.WriteLine("Таких задач не найдено");
+            }
+            else
+                PrintTodoList(result);          
 
+        }
 
+        private bool CheckPriority(int check)
+        {
+            if (check >0 && check<6)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Некорректный приоритет, введите числовое значение от 1 до 5!!!");
+                return false;
+            }
+                
         }
 
     }
