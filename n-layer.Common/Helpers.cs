@@ -9,7 +9,7 @@ namespace n_layer.Common
     {
         public static int getNewId()
         {
-            var _da = new DataAccsessImpl();
+            var _da = new TargetDataAccsessImpl();
             var list = _da.GetEntities();
             if (list.Count == 0)
                 return 1;

@@ -5,8 +5,4 @@
     <RootNamespace>n_layer.UserAPI</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\n-layer.UserAPI.Entities\n-layer.UserAPI.Entities.csproj" />
-  </ItemGroup>
-
 </Project>

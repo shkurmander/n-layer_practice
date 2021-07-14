@@ -5,7 +5,7 @@ using System.Text;
 namespace n_layer.DataAccess
 {
     [Serializable]
-    public class Target
+    public class TargetDAL
     {
         public int Id { get; set; }
         public string Name { get; set; }

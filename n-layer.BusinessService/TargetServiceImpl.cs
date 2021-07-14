@@ -9,12 +9,12 @@ namespace n_layer.BusinessService
     public class TargetServiceImpl : ITargetService
     {
        
-        private IDataAccsess _da;
+        private ITargetDataAccsess _da;
         public TargetServiceImpl()
         {
-            _da = new DataAccsessImpl();
+            _da = new TargetDataAccsessImpl();
         }
-        public TargetServiceImpl(IDataAccsess da)
+        public TargetServiceImpl(ITargetDataAccsess da)
         {
             _da = da;
         }

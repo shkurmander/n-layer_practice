@@ -5,8 +5,4 @@
     <RootNamespace>n_layer.DataAccess</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\n-layer.DataAccess.Entities\n-layer.DataAccess.Entities.csproj" />
-  </ItemGroup>
-
 </Project>
