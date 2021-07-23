@@ -31,11 +31,7 @@ namespace n_layer.DataAccess
           return GetAll().Where(item => item.Name.ToLower().Contains(name.ToLower()));
         }
 
-        public Target Find(int id)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public Target Get(int id)
         {
             return  GetAll().Where(t => t.Id == id).Single();
