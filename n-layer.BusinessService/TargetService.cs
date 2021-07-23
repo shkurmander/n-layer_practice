@@ -48,7 +48,7 @@ namespace n_layer.BusinessService
         /// <returns></returns>
         public Target GetTargetById(int id)
         {
-            return _da.Find(id);
+            return _da.Get(id);
             
 
         }
