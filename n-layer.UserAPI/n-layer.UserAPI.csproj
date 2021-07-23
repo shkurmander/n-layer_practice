@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\n-layer.BusinessService\n-layer.BusinessService.csproj" />
-    <ProjectReference Include="..\n-layer.Common\n-layer.Common.csproj" />
     <ProjectReference Include="..\n-layer.UserAPI.Interface\n-layer.UserAPI.Interface.csproj" />
   </ItemGroup>
 
