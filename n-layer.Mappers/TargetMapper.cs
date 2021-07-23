@@ -8,9 +8,9 @@ namespace n_layer.Mappers
 {
     public static class TargetMapper
     {
-        public static TargetDAL BLLToDAL(TargetBLL bllObj)
+        public static Target BLLToDAL(Target bllObj)
         {
-            return new TargetDAL
+            return new Target
             {
                 Id = bllObj.Id,
                 Name = bllObj.Name,
@@ -19,9 +19,9 @@ namespace n_layer.Mappers
                 State = bllObj.State
             };
         }
-        public static TargetBLL DALToBLL(TargetDAL dalObj)
+        public static Target DALToBLL(Target dalObj)
         {
-            return new TargetBLL
+            return new Target
             {
                 Id = dalObj.Id,
                 Name = dalObj.Name,
@@ -31,13 +31,13 @@ namespace n_layer.Mappers
             };
         }
 
-        public static List<TargetDAL> BLLToDALList(List<TargetBLL> bllList)
+        public static List<Target> BLLToDALList(List<Target> bllList)
         {
-            var dalList = new List<TargetDAL>();
+            var dalList = new List<Target>();
             foreach (var item in bllList)
             {
                 dalList.Add(
-                    new TargetDAL
+                    new Target
                     {
                         Id = item.Id,
                         Name = item.Name,
@@ -48,13 +48,13 @@ namespace n_layer.Mappers
             }
             return dalList;
         }
-        public static List<TargetBLL> DALToBLLList(List<TargetDAL> dalList)
+        public static List<Target> DALToBLLList(List<Target> dalList)
         {
-            var bllList = new List<TargetBLL>();
+            var bllList = new List<Target>();
             foreach (var item in dalList)
             {
                 bllList.Add(
-                    new TargetBLL
+                    new Target
                     {
                         Id = item.Id,
                         Name = item.Name,
@@ -65,9 +65,9 @@ namespace n_layer.Mappers
             }
             return bllList;
         }
-        public static TargetPL BLLToPL(TargetBLL bllObj)
+        public static Target BLLToPL(Target bllObj)
         {
-            return new TargetPL
+            return new Target
             {
                
                 Name = bllObj.Name,
@@ -76,9 +76,9 @@ namespace n_layer.Mappers
                 State = bllObj.State
             };
         }
-        public static TargetBLL PLToBLL(TargetPL dalObj)
+        public static Target PLToBLL(Target dalObj)
         {
-            return new TargetBLL
+            return new Target
             {                
                 Name = dalObj.Name,
                 Priority = dalObj.Priority,
@@ -87,13 +87,13 @@ namespace n_layer.Mappers
             };
         }
 
-        public static List<TargetPL> BLLToPLList(List<TargetBLL> bllList)
+        public static List<Target> BLLToPLList(List<Target> bllList)
         {
-            var plList = new List<TargetPL>();
+            var plList = new List<Target>();
             foreach (var item in bllList)
             {
                 plList.Add(
-                    new TargetPL
+                    new Target
                     {                        
                         Name = item.Name,
                         Priority = item.Priority,
@@ -103,13 +103,13 @@ namespace n_layer.Mappers
             }
             return plList;
         }
-        public static List<TargetBLL> PLToBLLList(List<TargetPL> dalList)
+        public static List<Target> PLToBLLList(List<Target> dalList)
         {
-            var bllList = new List<TargetBLL>();
+            var bllList = new List<Target>();
             foreach (var item in dalList)
             {
                 bllList.Add(
-                    new TargetBLL
+                    new Target
                     {
                         Id = item.Id,
                         Name = item.Name,

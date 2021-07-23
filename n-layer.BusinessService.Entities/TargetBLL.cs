@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+
 namespace n_layer.BusinessService
 {
     public class TargetBLL
@@ -9,5 +11,6 @@ namespace n_layer.BusinessService
         public int Priority { get; set; }
         public string Text { get; set; }
         public bool State { get; set; } = false;
+        public DateTime DateExpired { get; set; }
     }
 }

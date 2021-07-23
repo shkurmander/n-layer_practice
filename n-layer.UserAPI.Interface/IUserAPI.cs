@@ -1,4 +1,5 @@
-﻿using System;
+﻿using n_layer.Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,13 +7,13 @@ namespace n_layer.UserAPI.Interface
 {
     public interface IUserAPI
     {
-        public List<TargetPL> GetTodoList();
-        public TargetPL GetTargetById(int id);
-        public List<TargetPL> GetTargetByName(string name);
-        public void AddNewTarget(TargetPL target);
-        public void EditTarget(TargetPL targetToEdit);
+        public List<Target> GetAll();
+        public Target GetTargetById(int id);
+        public List<Target> GetTargetByName(string name);
+        public void AddNewTarget(Target target);
+        public void EditTarget(Target targetToEdit);
         public void DeleteTarget(int id);
-        public List<TargetPL> GetSortByPriority();
+        public List<Target> GetSortByPriority();
 
     }
 }

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\n-layer.DataAccess.Entities\n-layer.DataAccess.Entities.csproj" />
+    <ProjectReference Include="..\n-layer.Common\n-layer.Common.csproj" />
   </ItemGroup>
 
 </Project>

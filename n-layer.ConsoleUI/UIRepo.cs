@@ -1,4 +1,5 @@
 ﻿
+using n_layer.Common;
 using n_layer.UserAPI;
 using n_layer.UserAPI.Interface;
 using System;
@@ -71,7 +72,7 @@ namespace n_layer.ConsoleUI
 
         public void  AddNewTargetDialog()
         {
-            var tmp = new TargetPL();
+            var tmp = new Target();
             Console.Clear();
 
             Console.WriteLine("Введите название задачи:");
@@ -111,7 +112,7 @@ namespace n_layer.ConsoleUI
                         
             Console.Clear();
             
-            foreach (var item in _api.GetTodoList())
+            foreach (var item in _api.GetAll())
             {
                 PrintTarget(item);
             }
@@ -131,7 +132,7 @@ namespace n_layer.ConsoleUI
             Console.WriteLine("Для продолжения нажмите любую клавишу");
             Console.ReadKey();
         }
-        public void PrintTodoList(List<TargetPL> lst)
+        public void PrintTodoList(List<Target> lst)
         {
 
             Console.Clear();
@@ -144,7 +145,7 @@ namespace n_layer.ConsoleUI
             Console.ReadKey();
 
         }
-        public void PrintTarget(TargetPL target)
+        public void PrintTarget(Target target)
         {
             const int ind = 10;
             void MakeIndent()

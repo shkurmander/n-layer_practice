@@ -3,6 +3,7 @@ using n_layer.UserAPI.Interface;
 using n_layer.Mappers;
 using System.Collections.Generic;
 using System.Linq;
+using n_layer.Common;
 
 namespace n_layer.UserAPI
 {
@@ -17,7 +18,7 @@ namespace n_layer.UserAPI
         {
             _bl = bl;
         }
-        public void AddNewTarget(TargetPL target)
+        public void AddNewTarget(Target target)
         {            
             _bl.AddNewTarget(TargetMapper.PLToBLL(target));
         }
@@ -27,32 +28,32 @@ namespace n_layer.UserAPI
             _bl.DeleteTarget(id);
         }
 
-        public void EditTarget(TargetPL editedTarget)
+        public void EditTarget(Target editedTarget)
         {
             _bl.EditTarget(TargetMapper.PLToBLL(editedTarget));
         }
 
-        public List<TargetPL> GetSortByPriority()
+        public List<Target> GetSortByPriority()
         {
             
-             var unsorted = GetTodoList();
+             var unsorted = GetAll();
              return unsorted.OrderBy(t => t.Priority).ToList();
            
         }
 
-        public TargetPL GetTargetById(int id)
+        public Target GetTargetById(int id)
         {
             return TargetMapper.BLLToPL(_bl.GetTargetById(id));
         }
 
-        public List<TargetPL> GetTargetByName(string name)
+        public List<Target> GetTargetByName(string name)
         {
             return TargetMapper.BLLToPLList(_bl.GetTargetByName(name));
         }
 
-        public List<TargetPL> GetTodoList()
+        public List<Target> GetAll()
         {
-            return TargetMapper.BLLToPLList(_bl.GetTodoList());
+            return TargetMapper.BLLToPLList(_bl.GetAll());
         }
     }
 }
