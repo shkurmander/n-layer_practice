@@ -3,17 +3,18 @@ using n_layer.UserAPI.Interface;
 using System.Collections.Generic;
 using System.Linq;
 using n_layer.Entities;
+using n_layer.DataAccess;
 
 namespace n_layer.UserAPI
 {
-    public class UserAPIImpl : IUserAPI
+    public class UserAPI : IUserAPI
     {
         private ITargetService _bl;
-        public UserAPIImpl()
+        public UserAPI()
         {
-            _bl = new TargetServiceImpl();
+            _bl = new TargetService(new TargetRepository( new FileContext("target.dat"))); //TODO поправить костыль
         }
-        public UserAPIImpl(ITargetService bl)
+        public UserAPI(ITargetService bl)
         {
             _bl = bl;
         }
@@ -47,12 +48,12 @@ namespace n_layer.UserAPI
 
         public List<Target> GetTargetByName(string name)
         {
-            return _bl.GetTargetByName(name);
+            return _bl.GetTargetByName(name).ToList();
         }
 
         public List<Target> GetAll()
         {
-            return _bl.GetAll();
+            return _bl.GetAll().ToList();
         }
     }
 }

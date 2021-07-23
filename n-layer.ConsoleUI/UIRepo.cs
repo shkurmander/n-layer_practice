@@ -4,16 +4,17 @@ using n_layer.UserAPI;
 using n_layer.UserAPI.Interface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace n_layer.ConsoleUI
 {
     public class UIRepo
 
     {
-        private UserAPIImpl _api;
+        private UserAPI.UserAPI _api;
         public UIRepo()
-        { 
-           _api = new UserAPIImpl();
+        {
+            _api = new UserAPI.UserAPI();
         }
     
         
@@ -105,20 +106,37 @@ namespace n_layer.ConsoleUI
             Console.WriteLine("Для продолжения нажмите любую клавишу");
             Console.ReadKey();
         }
+        public void FindTargetDialog()
+        {
+            Console.Clear();
 
+            Console.WriteLine("Введите название задачи:");
+            var reqst = Console.ReadLine();
+            var result = _api.GetTargetByName(reqst);
+            if (result.Count == 0)
+            {
+                Console.WriteLine("Таких задач не найдено");
+            }
+            else
+                PrintTodoList(result);
+            
+            Console.ReadKey();
+
+        }
 
         public  void PrintTodoList()
         {
                         
             Console.Clear();
             
-            foreach (var item in _api.GetAll())
+            foreach (var item in _api.GetAll().ToList())
             {
                 PrintTarget(item);
             }
             Console.WriteLine("Для продолжения нажмите любую клавишу");
             Console.ReadKey();
         }
+
         
         public void PrintSortedList()
         {
@@ -185,23 +203,7 @@ namespace n_layer.ConsoleUI
 
         }
 
-        public  void FindTargetDialog()
-        {
-            Console.Clear();
-
-            Console.WriteLine("Введите название задачи:");
-            var reqst = Console.ReadLine();
-            var result = _api.GetTargetByName(reqst);
-            if (result.Count == 0)
-            {
-                Console.WriteLine("Таких задач не найдено");
-            }
-            else
-                PrintTodoList(result);
-            Console.WriteLine("Для продолжения нажмите любую клавишу");
-            Console.ReadKey();
-
-        }
+        
 
         private bool CheckPriority(int check)
         {

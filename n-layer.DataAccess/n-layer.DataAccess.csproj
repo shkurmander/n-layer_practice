@@ -6,7 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\n-layer.DataAccess.Interface\n-layer.DataAccess.Interface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EF\" />
   </ItemGroup>
 
 </Project>
