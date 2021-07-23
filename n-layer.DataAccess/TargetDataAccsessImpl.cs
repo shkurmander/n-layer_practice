@@ -1,23 +1,24 @@
-﻿using System;
+﻿
+using n_layer.Common;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace n_layer.DataAccess
 {
     public class TargetDataAccsessImpl : ITargetDataAccsess
     {
-        private IDataRepository<TargetDAL> _repo;        
+        private IDataRepository<Target> _repo;        
         public TargetDataAccsessImpl()
         {
-            _repo = new FileDataRepository<TargetDAL>("todolist.dat");
+            _repo = new FileDataRepository<Target>("todolist.dat");
             
         }
-        public List<TargetDAL> GetEntities()
+        public List<Target> GetEntities()
         {            
             return _repo.Load();
         }        
 
-        public  void SaveEntities(List<TargetDAL> newdata)
+        public  void SaveEntities(List<Target> newdata)
         {
             _repo.Save(newdata);
         }      

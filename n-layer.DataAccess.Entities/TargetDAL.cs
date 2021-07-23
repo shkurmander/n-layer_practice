@@ -12,6 +12,7 @@ namespace n_layer.DataAccess
         public int Priority { get; set; }
         public string Text { get; set; }
         public bool State { get; set; }
+        public DateTime DateExpired { get; set;  }
 
     }
 }

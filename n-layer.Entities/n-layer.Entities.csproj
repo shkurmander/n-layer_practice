@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>n_layer.Common</RootNamespace>
+    <RootNamespace>n_layer.Entities</RootNamespace>
   </PropertyGroup>
 
 </Project>

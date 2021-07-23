@@ -21,10 +21,10 @@ namespace n_layer.BusinessService
         /// <summary>
         /// Добавление задачи
         /// </summary>
-        public void AddNewTarget(TargetBLL newTarget)
+        public void AddNewTarget(Target newTarget)
         {
             var list = _da.GetEntities();
-            newTarget.Id = Helpers.getNewId();
+            //newTarget.Id = Helpers.getNewId();
             list.Add(TargetMapper.BLLToDAL(newTarget));
             _da.SaveEntities(list);
         }
@@ -44,7 +44,7 @@ namespace n_layer.BusinessService
         /// Редактирование задачи
         /// </summary>
         /// <param name="editedTarget"></param>
-        public void EditTarget(TargetBLL editedTarget)
+        public void EditTarget(Target editedTarget)
         {
             var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
             bllList.RemoveAll(i => i.Id == editedTarget.Id);
@@ -55,7 +55,7 @@ namespace n_layer.BusinessService
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public TargetBLL GetTargetById(int id)
+        public Target GetTargetById(int id)
         {          
             var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
             return bllList.Single(i => i.Id == id);
@@ -65,7 +65,7 @@ namespace n_layer.BusinessService
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<TargetBLL> GetTargetByName(string name)
+        public List<Target> GetTargetByName(string name)
         {            
             var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
 
@@ -75,7 +75,7 @@ namespace n_layer.BusinessService
         /// Вернуть полный список задач
         /// </summary>
         /// <returns></returns>
-        public List<TargetBLL> GetTodoList()
+        public List<Target> GetAll()
         {
             var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
             return bllList;

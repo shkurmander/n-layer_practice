@@ -1,12 +1,12 @@
 ﻿
 
-using n_layer.DataAccess;
 using System.Linq;
 
 namespace n_layer.Common
 {
     public static class Helpers
     {
+        /*
         public static int getNewId()
         {
             var _da = new TargetDataAccsessImpl();
@@ -16,6 +16,6 @@ namespace n_layer.Common
             else
                 return list.Select(t => t.Id).ToList().Max() + 1;
             
-        }
+        }*/
     }
 }

@@ -1,4 +1,5 @@
-﻿using n_layer.BusinessService;
+﻿
+using n_layer.Common;
 using System;
 using System.Collections.Generic;
 
@@ -8,12 +9,12 @@ namespace n_layer.Cache
     {
         
 
-        public void AddToCache(List<TargetBLL> targetList)
+        public void AddToCache(List<Target> targetList)
         {
             throw new NotImplementedException();
         }
 
-        public List<TargetBLL> GetFromCache()
+        public List<Target> GetFromCache()
         {
             throw new NotImplementedException();
         }
