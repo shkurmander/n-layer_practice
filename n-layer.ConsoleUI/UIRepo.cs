@@ -11,10 +11,10 @@ namespace n_layer.ConsoleUI
     public class UIRepo
 
     {
-        private UserAPI.UserAPI _api;
+        private UserAPI.TargetUserAPI _api;
         public UIRepo()
         {
-            _api = new UserAPI.UserAPI();
+            _api = new UserAPI.TargetUserAPI();
         }
     
         

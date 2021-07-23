@@ -7,14 +7,14 @@ using n_layer.DataAccess;
 
 namespace n_layer.UserAPI
 {
-    public class UserAPI : IUserAPI
+    public class TargetUserAPI : IUserAPI
     {
         private ITargetService _bl;
-        public UserAPI()
+        public TargetUserAPI()
         {
             _bl = new TargetService(new TargetRepository( new FileContext("target.dat"))); //TODO поправить костыль
         }
-        public UserAPI(ITargetService bl)
+        public TargetUserAPI(ITargetService bl)
         {
             _bl = bl;
         }
