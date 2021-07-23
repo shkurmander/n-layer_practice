@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\n-layer.Common\n-layer.Common.csproj" />
+    <ProjectReference Include="..\n-layer.Entities\n-layer.Entities.csproj" />
   </ItemGroup>
 
 </Project>

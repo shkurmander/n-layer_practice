@@ -1,5 +1,5 @@
 ﻿using n_layer.BusinessService;
-using n_layer.Common;
+using n_layer.Entities;
 using n_layer.DataAccess;
 using n_layer.UserAPI.Interface;
 using System.Collections.Generic;

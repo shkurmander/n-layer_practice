@@ -1,6 +1,6 @@
 ﻿
 using n_layer.BusinessService;
-using n_layer.Common;
+using n_layer.Entities;
 using System.Collections.Generic;
 
 namespace n_layer.Cache

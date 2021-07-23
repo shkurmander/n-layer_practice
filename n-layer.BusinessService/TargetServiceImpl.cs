@@ -1,6 +1,6 @@
-﻿using n_layer.Common;
+﻿using n_layer.Entities;
 using n_layer.DataAccess;
-using n_layer.Mappers;
+
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,7 +25,7 @@ namespace n_layer.BusinessService
         {
             var list = _da.GetEntities();
             //newTarget.Id = Helpers.getNewId();
-            list.Add(TargetMapper.BLLToDAL(newTarget));
+            list.Add(newTarget);
             _da.SaveEntities(list);
         }
         /// <summary>
@@ -34,10 +34,10 @@ namespace n_layer.BusinessService
         /// <param name="targetToDelete"></param>
         public void DeleteTarget(int id)
         {
-            var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
+            var bllList = _da.GetEntities();
 
             bllList.RemoveAll(i => i.Id == id);
-            _da.SaveEntities(TargetMapper.BLLToDALList(bllList));
+            _da.SaveEntities(bllList);
 
         }
         /// <summary>
@@ -46,9 +46,9 @@ namespace n_layer.BusinessService
         /// <param name="editedTarget"></param>
         public void EditTarget(Target editedTarget)
         {
-            var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
+            var bllList =_da.GetEntities();
             bllList.RemoveAll(i => i.Id == editedTarget.Id);
-            _da.SaveEntities(TargetMapper.BLLToDALList(bllList));
+            _da.SaveEntities(bllList);
         }
         /// <summary>
         /// Поиск по id 
@@ -57,7 +57,7 @@ namespace n_layer.BusinessService
         /// <returns></returns>
         public Target GetTargetById(int id)
         {          
-            var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
+            var bllList = _da.GetEntities();
             return bllList.Single(i => i.Id == id);
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace n_layer.BusinessService
         /// <returns></returns>
         public List<Target> GetTargetByName(string name)
         {            
-            var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
+            var bllList = _da.GetEntities();
 
             return bllList.Where(i => i.Name.Contains(name)).ToList();
         }
@@ -77,7 +77,7 @@ namespace n_layer.BusinessService
         /// <returns></returns>
         public List<Target> GetAll()
         {
-            var bllList = TargetMapper.DALToBLLList(_da.GetEntities());
+            var bllList = _da.GetEntities();
             return bllList;
         }
 

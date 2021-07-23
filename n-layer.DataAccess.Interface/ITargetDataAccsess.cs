@@ -1,4 +1,4 @@
-﻿using n_layer.Common;
+﻿using n_layer.Entities;
 using System.Collections.Generic;
 
 
@@ -7,8 +7,8 @@ namespace n_layer.DataAccess
 {
     public interface  ITargetDataAccsess
     {
-        public List<Target> GetEntities();
-        public void SaveEntities(List<Target> newdata);
+        IEnumerable<Target> GetEntities();
+        void SaveEntities(IEnumerable<Target> newdata);
 
     }
 }

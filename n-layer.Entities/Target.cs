@@ -4,7 +4,8 @@ using System.Text;
 
 namespace n_layer.Entities
 {
-    class Target
+    [Serializable]
+    public class Target
     {
         public int Id { get; set; }
         public string Name { get; set; }
