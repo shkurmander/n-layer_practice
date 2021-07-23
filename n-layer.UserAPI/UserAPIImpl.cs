@@ -1,9 +1,8 @@
 ﻿using n_layer.BusinessService;
 using n_layer.UserAPI.Interface;
-using n_layer.Mappers;
 using System.Collections.Generic;
 using System.Linq;
-using n_layer.Common;
+using n_layer.Entities;
 
 namespace n_layer.UserAPI
 {
@@ -20,7 +19,7 @@ namespace n_layer.UserAPI
         }
         public void AddNewTarget(Target target)
         {            
-            _bl.AddNewTarget(TargetMapper.PLToBLL(target));
+            _bl.AddNewTarget(target);
         }
 
         public void DeleteTarget(int id)
@@ -30,7 +29,7 @@ namespace n_layer.UserAPI
 
         public void EditTarget(Target editedTarget)
         {
-            _bl.EditTarget(TargetMapper.PLToBLL(editedTarget));
+            _bl.EditTarget(editedTarget);
         }
 
         public List<Target> GetSortByPriority()
@@ -43,17 +42,17 @@ namespace n_layer.UserAPI
 
         public Target GetTargetById(int id)
         {
-            return TargetMapper.BLLToPL(_bl.GetTargetById(id));
+            return _bl.GetTargetById(id);
         }
 
         public List<Target> GetTargetByName(string name)
         {
-            return TargetMapper.BLLToPLList(_bl.GetTargetByName(name));
+            return _bl.GetTargetByName(name);
         }
 
         public List<Target> GetAll()
         {
-            return TargetMapper.BLLToPLList(_bl.GetAll());
+            return _bl.GetAll();
         }
     }
 }

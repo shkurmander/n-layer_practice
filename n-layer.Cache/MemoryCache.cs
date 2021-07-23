@@ -1,5 +1,5 @@
 ﻿
-using n_layer.Common;
+using n_layer.Entities;
 using System;
 using System.Collections.Generic;
 

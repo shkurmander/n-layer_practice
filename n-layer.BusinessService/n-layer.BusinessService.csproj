@@ -8,7 +8,6 @@
   <ItemGroup>
     <ProjectReference Include="..\n-layer.BusinessService.Interface\n-layer.BusinessService.Interface.csproj" />
     <ProjectReference Include="..\n-layer.DataAccess\n-layer.DataAccess.csproj" />
-    <ProjectReference Include="..\n-layer.Mappers\n-layer.Mappers.csproj" />
   </ItemGroup>
 
 </Project>
