@@ -170,11 +170,12 @@ namespace n_layer.ConsoleUI
             {
                 Console.SetCursorPosition(ind, Console.CursorTop);
             }
-            MakeIndent();
+            
+            Console.WriteLine($"Id:\t {target.Id}");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(target.Name);
+            Console.WriteLine($"Задача:\t{ target.Name}");
             Console.ResetColor();
-            Console.WriteLine($"Описание:\n\t {target.Text}");
+            Console.WriteLine($"Описание:\t {target.Text}");
             switch (target.Priority)
             {
                 case 1 :  Console.ForegroundColor = ConsoleColor.Red; break;
@@ -187,6 +188,7 @@ namespace n_layer.ConsoleUI
             }
             Console.WriteLine($"Приоритет:\t {target.Priority}");
             Console.ResetColor();
+            Console.WriteLine($"Срок:\t {target.DateExpired}");
             if (target.State)
             {
                 Console.ForegroundColor = ConsoleColor.Green;

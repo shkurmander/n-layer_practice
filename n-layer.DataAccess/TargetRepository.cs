@@ -68,7 +68,7 @@ namespace n_layer.DataAccess
             {
                 return 1;
             }
-            return _db.Targets.Max(item => item.Id);
+            return _db.Targets.Max(item => item.Id) + 1;
         }
     }
 }
