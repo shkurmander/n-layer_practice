@@ -17,13 +17,15 @@ namespace n_layer.DataAccess
         }
         public void Create(Target item)
         {
+            item.Id = GetId();
             _db.Targets.Add(item);
             Save();
         }
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var item = Get(id);
+            _db.Targets.Remove(item);
         }
 
         public IEnumerable<Target> Find(string name)
@@ -58,6 +60,15 @@ namespace n_layer.DataAccess
         public void Update(Target item)
         {
             throw new System.NotImplementedException();
+        }
+
+        private int GetId()
+        {
+            if (_db.Targets.Count == 0)
+            {
+                return 1;
+            }
+            return _db.Targets.Max(item => item.Id);
         }
     }
 }
