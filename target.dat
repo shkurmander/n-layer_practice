@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Name": "Спать",
+    "Priority": 1,
+    "Text": "спать 8 часов",
+    "State": false,
+    "DateExpired": "0001-01-01T00:00:00"
+  },
+  {
+    "Id": 2,
+    "Name": "Есть",
+    "Priority": 3,
+    "Text": "Есть 3 раза ",
+    "State": false,
+    "DateExpired": "0001-01-01T00:00:00"
+  },
+  {
+    "Id": 3,
+    "Name": "Кот",
+    "Priority": 2,
+    "Text": "Кормить кота",
+    "State": false,
+    "DateExpired": "0001-01-01T00:00:00"
+  }
+]
