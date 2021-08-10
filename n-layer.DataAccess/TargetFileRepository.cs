@@ -8,10 +8,10 @@ using System.Linq;
 
 namespace n_layer.DataAccess
 {
-    public class TargetRepository : IRepository<Target>
+    public class TargetFileRepository : ITargetRepository
     {
         private FileContext _db;
-        public TargetRepository(FileContext context)
+        public TargetFileRepository(FileContext context)
         {
             _db = context;
         }

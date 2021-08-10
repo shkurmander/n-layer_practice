@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace n_layer.DataAccess
 {
-    public interface  IRepository<T> where T : class
+    public interface  IRepository<T>
     {
        
         IEnumerable<T> GetAll();

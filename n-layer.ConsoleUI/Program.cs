@@ -1,5 +1,8 @@
-﻿using n_layer.UserAPI;
+﻿using Microsoft.Extensions.Configuration;
+using n_layer.Entities.Configuration;
+using n_layer.UserAPI;
 using System;
+using System.IO;
 
 namespace n_layer.ConsoleUI
 {
@@ -7,6 +10,14 @@ namespace n_layer.ConsoleUI
     {
         static void Main(string[] args)
         {
+            // Build configuration
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+                .AddJsonFile("appsettings.json", false)
+                .Build();
+            var configDal = configuration.GetSection("configurationDal").Get<ConfigurationDAL>();
+
+
             var ui = new UIRepo();
             ui.DrawMainMenu();
             Console.ReadKey();
