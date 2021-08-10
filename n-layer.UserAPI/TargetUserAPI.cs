@@ -12,7 +12,7 @@ namespace n_layer.UserAPI
         private ITargetService _bl;
         public TargetUserAPI()
         {
-            _bl = new TargetService(new TargetRepository( new FileContext(@"C:\c#\n-layer\target.dat"))); //TODO поправить костыль
+            _bl = new TargetService(new TargetFileRepository( new FileContext(@"C:\c#\n-layer\target.dat"))); //TODO поправить костыль
         }
         public TargetUserAPI(ITargetService bl)
         {
