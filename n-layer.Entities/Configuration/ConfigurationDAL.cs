@@ -8,5 +8,6 @@ namespace n_layer.Entities.Configuration
     {
         public TypeOfDao Type { get; set; }
         public string DbConnection { get; set; }
+        public string FilePath { get; set; }
     }
 }

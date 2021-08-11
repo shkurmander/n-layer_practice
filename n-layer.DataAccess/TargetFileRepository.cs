@@ -11,9 +11,9 @@ namespace n_layer.DataAccess
     public class TargetFileRepository : ITargetRepository
     {
         private FileContext _db;
-        public TargetFileRepository(FileContext context)
+        public TargetFileRepository(string path)
         {
-            _db = context;
+            _db = new FileContext(path);
         }
         public void Create(Target item)
         {
