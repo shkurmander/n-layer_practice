@@ -8,17 +8,19 @@ namespace n_layer.IoC
 {
     public class DependencyResolver
     {
-        private ConfigurationDAL _confgigDAL;
-        private IRepository<Target> _targetRepo;
+        
+        private ITargetRepository targetDao{ get; }
+        public ITargetService TargetService { get; }
 
         public DependencyResolver(ConfigurationDAL config)
-        {
-            _confgigDAL = config;
+        {            
+            targetDao = GetRepository(config);
+            TargetService = new TargetService(targetDao);
         }
-        
-        
 
-        public IRepository<Target>  GetRepository(ConfigurationDAL config)
+       
+
+        public ITargetRepository GetRepository(ConfigurationDAL config)
         {
             switch (config.Type)
             {
@@ -30,13 +32,13 @@ namespace n_layer.IoC
                     
                 case TypeOfDao.Memory:
                     return new TargetMemoryRepository();
-                    return new TargetMemoryRepository();
+                    
                 default:
                     throw new ArgumentException("Некорректный параметр конфигурации хранилища");                   
             }
 
         }
-        private  ITargetService targetService { get; } 
+       
 
         
 

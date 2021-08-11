@@ -10,9 +10,9 @@ namespace n_layer.BusinessService
     public class TargetService : ITargetService
     {
        
-        private IRepository<Target> _da;
+        private ITargetRepository _da;
       
-        public TargetService(IRepository<Target> da)
+        public TargetService(ITargetRepository da)
         {
             _da = da;
         }
