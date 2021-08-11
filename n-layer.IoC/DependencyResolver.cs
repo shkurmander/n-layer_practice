@@ -7,13 +7,21 @@ namespace n_layer.IoC
 {
     public class DependencyResolver
     {
+        private ConfigurationDAL _confgigDAL;
         private ITargetRepository _targetRepo;
 
         public DependencyResolver(ConfigurationDAL config)
         {
-
+            _confgigDAL = config;
         }
-        private static ITargetRepository TargetFileRepository { get;  } = new TargetFileRepository();
-        public static ITargetService targetService { get; } = new TargetService();
+        
+        
+
+        private  ITargetRepository TargetFileRepository { get;  }
+        private  ITargetService targetService { get; } 
+
+        
+
     }
+
 }

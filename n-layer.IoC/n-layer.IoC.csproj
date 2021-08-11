@@ -10,11 +10,8 @@
     <ProjectReference Include="..\n-layer.BusinessService\n-layer.BusinessService.csproj" />
     <ProjectReference Include="..\n-layer.Cache.Interface\n-layer.Cache.Interface.csproj" />
     <ProjectReference Include="..\n-layer.Cache\n-layer.Cache.csproj" />
-    <ProjectReference Include="..\n-layer.ConsoleUI\n-layer.ConsoleUI.csproj" />
     <ProjectReference Include="..\n-layer.DataAccess.Interface\n-layer.DataAccess.Interface.csproj" />
     <ProjectReference Include="..\n-layer.DataAccess\n-layer.DataAccess.csproj" />
-    <ProjectReference Include="..\n-layer.UserAPI.Interface\n-layer.UserAPI.Interface.csproj" />
-    <ProjectReference Include="..\n-layer.UserAPI\n-layer.UserAPI.csproj" />
   </ItemGroup>
 
 </Project>
