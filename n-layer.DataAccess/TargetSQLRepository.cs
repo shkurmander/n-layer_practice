@@ -50,7 +50,7 @@ namespace n_layer.DataAccess
             return _db.Targets.ToList();
         }
 
-        public void Save()
+        private void Save()
         {
             _db.SaveChanges();
         }
