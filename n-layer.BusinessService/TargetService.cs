@@ -4,17 +4,22 @@ using n_layer.DataAccess;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using n_layer.Cache;
 
 namespace n_layer.BusinessService
 {
     public class TargetService : ITargetService
     {
        
-        private ITargetRepository _da;
-      
-        public TargetService(ITargetRepository da)
+        private readonly ITargetRepository _da;
+        private readonly ICache _cache;
+        private const string CACHE_KEY_JOB = "CACHE_KEY_JOB";
+
+        public TargetService(ITargetRepository da, ICache cache)
         {
             _da = da;
+            _cache = cache;
+           
         }
         /// <summary>
         /// Добавление задачи
@@ -23,6 +28,7 @@ namespace n_layer.BusinessService
         {
            
             _da.Create(newTarget);
+            _cache.Reset(CACHE_KEY_JOB);
         }
         /// <summary>
         /// Удаление задачи
@@ -67,7 +73,8 @@ namespace n_layer.BusinessService
         /// <returns></returns>
         public IEnumerable<Target> GetAll()
         {
-            return _da.GetAll();
+            return _cache.GetOrCreate(CACHE_KEY_JOB, () => _da.GetAll());
+                
         }
 
         

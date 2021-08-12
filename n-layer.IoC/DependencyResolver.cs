@@ -1,4 +1,5 @@
 ﻿using n_layer.BusinessService;
+using n_layer.Cache;
 using n_layer.DataAccess;
 using n_layer.Entities;
 using n_layer.Entities.Configuration;
@@ -8,14 +9,16 @@ namespace n_layer.IoC
 {
     public class DependencyResolver
     {
-        
-        private ITargetRepository targetDao{ get; }
+
+        private readonly ITargetRepository _targetDao;
+        private readonly ICache _memCache;
         public ITargetService TargetService { get; }
 
         public DependencyResolver(ConfigurationDAL config)
         {            
-            targetDao = GetRepository(config);
-            TargetService = new TargetService(targetDao);
+            _targetDao = GetRepository(config);
+            _memCache = new MemoryCache();
+            TargetService = new TargetService(_targetDao, _memCache);
         }
 
        

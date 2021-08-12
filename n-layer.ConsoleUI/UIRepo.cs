@@ -53,7 +53,9 @@ namespace n_layer.ConsoleUI
                 MakeIndent();
                 Console.WriteLine("4. Поиск задачи");
                 MakeIndent();
-                Console.WriteLine("5. Выход");
+                Console.WriteLine("5. Удаление задачи");
+                MakeIndent();
+                Console.WriteLine("6. Выход");
                 Console.SetCursorPosition(35, Console.CursorTop);
                 Console.WriteLine("********************************************");
 
@@ -63,7 +65,8 @@ namespace n_layer.ConsoleUI
                     case "2" : PrintSortedList(); break;
                     case "3": AddNewTargetDialog(); break;
                     case "4": FindTargetDialog(); break;
-                    case "5": exit = true; break;
+                    case "5": DeleteTargetDialog(); break;
+                    case "6": exit = true; break;
 
                     default:
                         break;
@@ -73,7 +76,29 @@ namespace n_layer.ConsoleUI
 
 
         }
+        //Удаление задачи
+        private void DeleteTargetDialog()
+        {
+            FindTargetDialog();
+            Console.WriteLine("Введите идентификатор задачи, которую надо удалить");
+            int id;
+            if (Int32.TryParse(Console.ReadLine(), out id))
+            {
+                _api.DeleteTarget(id);
+                Console.WriteLine("Запись удалена");
 
+            }
+            else
+            {
+                Console.WriteLine("Некорректное значение идентификатора");
+                
+            }
+            Console.WriteLine("Для продолжения нажмите любую клавишу");
+            Console.ReadKey();
+
+        }
+
+        // Создаем новую задачу
         public void  AddNewTargetDialog()
         {
             var tmp = new Target();
@@ -103,12 +128,14 @@ namespace n_layer.ConsoleUI
 
                     Console.WriteLine("Некорректный ввод, необходимо ввести число"); 
                 }
-            }   
-
+            }
+            Console.Write("дата окончания срока исполнения (дд.мм.гггг): ");
+            tmp.DateExpired = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
             _api.AddNewTarget(tmp);
             Console.WriteLine("Для продолжения нажмите любую клавишу");
             Console.ReadKey();
         }
+        //Поиск
         public void FindTargetDialog()
         {
             Console.Clear();
@@ -168,11 +195,7 @@ namespace n_layer.ConsoleUI
         }
         public void PrintTarget(Target target)
         {
-            const int ind = 10;
-            void MakeIndent()
-            {
-                Console.SetCursorPosition(ind, Console.CursorTop);
-            }
+            
             
             Console.WriteLine($"Id:\t {target.Id}");
             Console.ForegroundColor = ConsoleColor.Green;
