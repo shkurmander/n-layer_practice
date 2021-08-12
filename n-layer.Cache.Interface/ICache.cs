@@ -1,16 +1,16 @@
 ﻿
-using n_layer.BusinessService;
-using n_layer.Entities;
-using System.Collections.Generic;
+using System;
+
 
 namespace n_layer.Cache
 {
     public interface ICache
     {
-        public void AddToCache(List<Target> targetList);
-        public List<Target> GetFromCache();
+        T GetOrCreate<T>(string key, Func<T> func);
 
+        void Reset(string key);
     }
+}
 
     
-}
+
