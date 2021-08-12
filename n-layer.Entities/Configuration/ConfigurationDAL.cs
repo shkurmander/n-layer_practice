@@ -7,19 +7,12 @@ namespace n_layer.Entities.Configuration
 {
     public class ConfigurationDAL
     {
-        public TypeOfDao Type { get; set; }
-        private string filePath;
-        public string DbConnection { get; set; }
-        public string FilePath 
-        {
-            get
-            {
-                return filePath;
-            }
+        public TypeOfDao Type { get; set; }      
+     
       
         public string DbConnection { get; set; }
         public string FilePath { get; set; }
 
     }
 }
-}
+
