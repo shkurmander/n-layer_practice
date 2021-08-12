@@ -16,12 +16,10 @@ namespace n_layer.Entities.Configuration
             {
                 return filePath;
             }
+      
+        public string DbConnection { get; set; }
+        public string FilePath { get; set; }
 
-            set
-            {
-                filePath = value.Replace("\\", @"\");
-            }
-        
-        }
     }
+}
 }
