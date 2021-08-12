@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\n-layer.BusinessService.Interface\n-layer.BusinessService.Interface.csproj" />
     <ProjectReference Include="..\n-layer.IoC\n-layer.IoC.csproj" />
     <ProjectReference Include="..\n-layer.UserAPI.Interface\n-layer.UserAPI.Interface.csproj" />
     <ProjectReference Include="..\n-layer.UserAPI\n-layer.UserAPI.csproj" />

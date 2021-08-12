@@ -1,8 +1,5 @@
 ﻿using n_layer.Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace n_layer.DataAccess

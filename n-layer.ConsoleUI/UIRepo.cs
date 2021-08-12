@@ -1,5 +1,6 @@
 ﻿
 using n_layer.Entities;
+using n_layer.IoC;
 using n_layer.UserAPI;
 using n_layer.UserAPI.Interface;
 using System;
@@ -11,10 +12,12 @@ namespace n_layer.ConsoleUI
     public class UIRepo
 
     {
-        private UserAPI.TargetUserAPI _api;
-        public UIRepo()
+        IUserAPI _api;
+        
+        public UIRepo(DependencyResolver resolver)
         {
-            _api = new UserAPI.TargetUserAPI();
+            _api = new TargetUserAPI(resolver.TargetService);
+
         }
     
         
