@@ -10,10 +10,7 @@ namespace n_layer.UserAPI
     public class TargetUserAPI : IUserAPI
     {
         private ITargetService _bl;
-        public TargetUserAPI()
-        {
-            _bl = 
-        }
+        
         public TargetUserAPI(ITargetService bl)
         {
             _bl = bl;

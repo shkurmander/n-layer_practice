@@ -17,11 +17,10 @@ namespace n_layer.ConsoleUI
                 .AddJsonFile("appsettings.json", false)
                 .Build();
             var configDal = configuration.GetSection("configurationDal").Get<ConfigurationDAL>();
-            var container = new DependencyResolver(configDal);
+            var resolver = new DependencyResolver(configDal);
             
 
-
-            var ui = new UIRepo();
+            var ui = new UIRepo(resolver);
             ui.DrawMainMenu();
             Console.ReadKey();
         }
